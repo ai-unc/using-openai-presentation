@@ -1,5 +1,5 @@
 import { OPENAI_API_KEY } from "$env/static/private";
-import { json, type RequestHandler } from "@sveltejs/kit";
+import { error, json, type RequestHandler } from "@sveltejs/kit";
 import { ChatOpenAI } from "langchain/chat_models/openai";
 import { PromptTemplate, FewShotPromptTemplate } from "langchain/prompts";
 import { LengthBasedExampleSelector } from "langchain/prompts";
@@ -8,11 +8,13 @@ import { examples } from "./examples";
 const client = new ChatOpenAI({
 	openAIApiKey: OPENAI_API_KEY,
 	temperature: 0,
-	modelName: "gtp-3.5-turbo",
+	modelName: "gpt-3.5-turbo",
 });
 
-export const POST = (async () => {
-	const message = "";
+export const POST = (async ({ request }) => {
+	const { message } = await request.json();
+
+	if (message == undefined) throw error(400);
 
 	const examplePrompt = new PromptTemplate({
 		inputVariables: ["example_query", "example_response"],
