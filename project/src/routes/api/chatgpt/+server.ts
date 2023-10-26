@@ -32,8 +32,7 @@ export const POST = (async ({ request }) => {
         - Each object in the array should contain 3 keys: lon, lat, blurb
         - lon is the longitude of the coords for each match to the query
         - lat is the latitude of the coords for each match to the query
-        - blurb is the 1-3 sentence answer to the query along with information about the environmental concerns of the city or region in which the coords exist
-        - The array should be max length 3 items
+        - blurb is the 1-3 sentence answer to the query
         - the overall length of the answer should be maximum 500 characters and should be a fully parsable JSON string
         - if you cannot provide accurate information then please provide your best guess along with a disclaimer`,
 		suffix: `Here is the arbitrary query...\n\n{input}\n`,
