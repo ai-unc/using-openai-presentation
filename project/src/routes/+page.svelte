@@ -78,11 +78,11 @@
 <MapLibre
 	style="https://api.maptiler.com/maps/streets-v2/style.json?key=XPCLEtBXX1p9Zg32Jgwh"
 	class="relative aspect-[9/16] max-h-[100vh] w-full"
-	zoom={1.3}
+	zoom={1.2}
 	center={[10, 35]}
 	attributionControl={false}
 	bind:map
-	minZoom={1.7}
+	minZoom={1}
 >
 	{#each generatedResponse as marker}
 		<Marker lngLat={[marker.lon, marker.lat]} class="h-[50px] w-[50px] cursor-default">
