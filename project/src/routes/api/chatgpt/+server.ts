@@ -16,16 +16,16 @@ export const POST = (async ({ request }) => {
 
 	if (message == undefined) throw error(400);
 
-	const examplePrompt = new PromptTemplate({
+	const promptTemplate = new PromptTemplate({
 		inputVariables: ["example_query", "example_response"],
 		template: "{example_query} {example_response}",
 	});
 
-	const exampleSelector = await LengthBasedExampleSelector.fromExamples(examples, { examplePrompt });
+	const exampleSelector = await LengthBasedExampleSelector.fromExamples(examples, { examplePrompt: promptTemplate });
 
 	const dynamicPrompt = new FewShotPromptTemplate({
 		exampleSelector,
-		examplePrompt,
+		examplePrompt: promptTemplate,
 		prefix: `Can you return an array of objects as a JSON formatted string that are geographically relevant to an arbitrary query?
 
         REQUIREMENTS:
