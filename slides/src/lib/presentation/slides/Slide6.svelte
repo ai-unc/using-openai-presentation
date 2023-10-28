@@ -1,5 +1,6 @@
 <section>
 	<h4>What will we be making?</h4>
+	<div class="subtitle text-blue-500">https://github.com/ai-unc/using-openai-presentation</div>
 	<div class="flex h-[90%] w-full">
 		<iframe class="flex-grow" src="http://localhost:3000" loading="lazy" title="Project" />
 	</div>
